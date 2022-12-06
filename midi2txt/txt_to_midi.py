@@ -1,6 +1,6 @@
 from mido import MidiFile, MidiTrack, MetaMessage, Message
 # we use our own bpm2tempo becaus the mido stuff cuts off decimals - which is not good when the bpm tempo is not an int
-from settings import midi_drum_map
+from midi2txt.settings import midi_drum_map
 import argparse
 import os
 from midi2txt import bpm2tempo
@@ -82,7 +82,7 @@ if __name__ == '__main__':
     parser.add_argument('--program', '-p', help='program number of midi track', default=0)
     parser.add_argument('--channel', '-c', help='channel number of midi track', default=10)
     parser.add_argument('--ignore', '-g', help='Ignore unknown instrument notes and continue', action='store_true', default=False)
-    parser.add_argument('--no_map', '-n', help='Dont map midi isntrument notes', action='store_true',
+    parser.add_argument('--no_map', '-n', help='Dont map midi instrument notes', action='store_true',
                         default=False)
     parser.add_argument('--smooth', '-s', help='smooth tempo curve, use a floating window of N beats', type=int, default=0)
     parser.add_argument('--sync_to_audio', '-a', help='Make MIDI output synchronous to audio. If beats are used, usa a bar at the beginning to fill the silence', type=bool, default=True)
